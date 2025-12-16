@@ -8,6 +8,12 @@ std::vector<ValueContainer> implementationDependentValuesRequired = {
     ValueContainer{ "MAX_MODELVIEW_STACK_DEPTH","Maximum model-viewstack depth","2.10.2",GL_INT,32, GL_MAX_MODELVIEW_STACK_DEPTH },
     ValueContainer{ "MAX_PROJECTION_STACK_DEPTH","Maximum projection matrix stack depth","2.10.2",GL_INT,2, GL_MAX_PROJECTION_STACK_DEPTH },
     ValueContainer{ "MAX_TEXTURE_STACK_DEPTH","Maximum number depth of texture matrix stack","2.10.2",GL_INT,2, GL_MAX_PROJECTION_STACK_DEPTH },
+    ValueContainer{ "SUBPIXEL_BITS","Number of bits of precision in x & y","3",GL_INT,4, GL_SUBPIXEL_BITS },
+    ValueContainer{ "MAX_TEXTURE_SIZE","See the discussiion in Section 3.8","3.8",GL_INT,64, GL_MAX_TEXTURE_SIZE },
+    ValueContainer{ "MAX_PIXEL_MAP_TABLE","Maximum size of a PixelMap translation table","3.6.2",GL_INT,32, GL_MAX_PIXEL_MAP_TABLE },
+    ValueContainer{ "MAX_NAME_STACK_DEPTH","Maximum selection name stack depth","5.2",GL_INT,64, GL_MAX_NAME_STACK_DEPTH },
+    ValueContainer{ "MAX_LIST_NESTING","Maximum display list call nesting","5.4",GL_INT,64, GL_MAX_LIST_NESTING },
+    ValueContainer{ "MAX_EVAL_ORDER","Maximum evaluator polynomial order","5.1",GL_INT,8, GL_MAX_EVAL_ORDER },
 };
 
 

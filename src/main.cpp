@@ -21,7 +21,8 @@ void RegisterTest(const std::string& name, std::function<TestResult()> testPtr) 
     testSections.back().tests.push_back(te);
 }
 
-std::pair<int,int> RunSection(const TestSection& ts) {
+TestCounter RunSection(const TestSection& ts) {
+    TestCounter tc;
     std::cout << "--- " << ts.name << " --- \n";
     int testsPassed = 0;
     for (auto t : ts.tests) {
@@ -32,22 +33,20 @@ std::pair<int,int> RunSection(const TestSection& ts) {
             t.result.reason = e.what();
         }
         std::cout << t << "\n";
-        if (t.result.state == PASSED || t.result.state == SUCCEEDED) {
-            testsPassed++;
-        }
+        IncrementTestCounter(tc, t.result.state);
     }
-    return std::pair<int,int>{testsPassed,ts.tests.size()};
+    std::cout << "Passed Tests: " << tc.passed+tc.success << "/" << tc.total << std::endl;
+    return tc;
 }
 
 void RunAllTests() {
-    int testsPassed = 0;
-    int totalTestsRun = 0;
+    TestCounter totalTC;
     for (auto ts : testSections) {
-        std::pair<int,int> res = RunSection(ts);
-        testsPassed += res.first;
-        totalTestsRun += res.second;
+        TestCounter resTC = RunSection(ts);
+        totalTC = totalTC + resTC;
     }
-    std::cout << testsPassed << "/" << totalTestsRun << " PASSED TESTS" << std::endl;
+    std::cout << "\n--- RESULTS --- \n";
+    std::cout << "Total Passed Tests: " << " " << totalTC.passed+totalTC.success << "/" << totalTC.total << std::endl;
 }
 
 int main() {

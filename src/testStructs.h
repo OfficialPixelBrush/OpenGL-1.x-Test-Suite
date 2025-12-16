@@ -14,13 +14,38 @@ enum TestState {
     SUCCEEDED, // Perfectly meets the spec
 };
 
-std::string TestStateToString(TestState ts);
+std::string ColoredTestStateToString(const TestState& ts);
+std::string TestStateToString(const TestState& ts);
+
+struct TestCounter {
+    int total = 0;
+    int failed = 0;
+    int error = 0;
+    int invalid = 0;
+    int no_value = 0;
+    int passed = 0;
+    int success = 0;
+
+    TestCounter operator+(const TestCounter& o) const {
+        return TestCounter{
+            total + o.total,
+            failed + o.failed,
+            error + o.error,
+            invalid + o.invalid,
+            no_value + o.no_value,
+            passed + o.passed, 
+            success + o.success
+        };
+    }
+};
+
+void IncrementTestCounter(TestCounter& tc, const TestState& ts);
 
 struct TestResult {
     std::string reason = "";
     TestState state = UNTESTED;
     friend std::ostream& operator<<(std::ostream& os, const TestResult& tr) {
-        os << "[" << TestStateToString(tr.state) << "]";
+        os << ColoredTestStateToString(tr.state);
         return os;
     }
 };

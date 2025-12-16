@@ -10,8 +10,7 @@ enum TestState {
     ERROR, // 
     INVALID, // Incorrect result
     NO_VALUE, // No result
-    PASSED, // Technically wrong, but not accurate
-    SUCCEEDED, // Perfectly meets the spec
+    PASSED, // Meets or exceeds the spec
 };
 
 std::string ColoredTestStateToString(const TestState& ts);
@@ -24,7 +23,6 @@ struct TestCounter {
     int invalid = 0;
     int no_value = 0;
     int passed = 0;
-    int success = 0;
 
     TestCounter operator+(const TestCounter& o) const {
         return TestCounter{
@@ -33,8 +31,7 @@ struct TestCounter {
             error + o.error,
             invalid + o.invalid,
             no_value + o.no_value,
-            passed + o.passed, 
-            success + o.success
+            passed + o.passed
         };
     }
 };

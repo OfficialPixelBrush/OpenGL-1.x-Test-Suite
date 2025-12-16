@@ -36,7 +36,7 @@ TestCounter RunSection(const TestSection& ts) {
         std::cout << t << "\n";
         IncrementTestCounter(tc, t.result.state);
     }
-    std::cout << "Passed Tests: " << tc.passed+tc.success << "/" << tc.total << std::endl;
+    std::cout << "Passed Tests: " << tc.passed << "/" << tc.total << std::endl;
     return tc;
 }
 
@@ -47,7 +47,7 @@ void RunAllTests() {
         totalTC = totalTC + resTC;
     }
     std::cout << "\n--- RESULTS --- \n";
-    std::cout << "Total Passed Tests: " << " " << totalTC.passed+totalTC.success << "/" << totalTC.total << std::endl;
+    std::cout << "Total Passed Tests: " << " " << totalTC.passed << "/" << totalTC.total << std::endl;
 }
 
 int main() {

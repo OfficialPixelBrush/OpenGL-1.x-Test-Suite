@@ -15,11 +15,16 @@ std::vector<ValueContainer> implementationDependentValuesRequired = {
     ValueContainer{ "MAX_NAME_STACK_DEPTH","Maximum selection name stack depth","5.2",GL_INT,64, GL_MAX_NAME_STACK_DEPTH },
     ValueContainer{ "MAX_LIST_NESTING","Maximum display list call nesting","5.4",GL_INT,64, GL_MAX_LIST_NESTING },
     ValueContainer{ "MAX_EVAL_ORDER","Maximum evaluator polynomial order","5.1",GL_INT,8, GL_MAX_EVAL_ORDER },
+    ValueContainer{ "MAX_ATTRIB_STACK_DEPTH","Maximum depth of the server attribute stack","6",GL_INT,16, GL_MAX_ATTRIB_STACK_DEPTH },
+    ValueContainer{ "MAX_CLIENT_ATTRIB_STACK_DEPTH","Maximum depth of the client attribute stack","6",GL_INT,16, GL_MAX_CLIENT_ATTRIB_STACK_DEPTH },
+    ValueContainer{ "AUX_BUFFERS","Number of auxiliary buffers","4.2.1",GL_INT,0, GL_AUX_BUFFERS },
 };
-
 
 std::vector<ValueContainer> implementationDependentValuesOptional = {
     ValueContainer{ "RGBA_MODE","True if color buffers store rgba","2.7",GL_BOOL,1, GL_RGBA_MODE },
+    ValueContainer{ "INDEX_MODE","True if color buffers store indexes","2.7",GL_BOOL,1, GL_INDEX_MODE },
+    ValueContainer{ "DOUBLEBUFFER","True if front & back buffer exists","4.2.1",GL_BOOL,1, GL_DOUBLEBUFFER },
+    ValueContainer{ "STEREO","True if left & right buffers exist","6",GL_BOOL,1, GL_STEREO },
 };
 
 std::string TypeToString(ValueContainer vc) {

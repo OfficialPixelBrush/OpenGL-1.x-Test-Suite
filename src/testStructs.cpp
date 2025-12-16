@@ -15,7 +15,6 @@ std::string ColoredTestStateToString(const TestState& ts) {
         case NO_VALUE:
             return "\x1b[1;43m" + TestStateToString(ts) + "\x1b[0m";
         case PASSED:
-        case SUCCEEDED:
             return "\x1b[1;42m" + TestStateToString(ts) + "\x1b[0m";
         default:
             return TestStateToString(ts);
@@ -36,8 +35,6 @@ std::string TestStateToString(const TestState& ts) {
             return "[NOVA]";
         case PASSED:
             return "[PASS]";
-        case SUCCEEDED:
-            return "[SUCC]";
     }
     return "NAN";
 }
@@ -57,8 +54,6 @@ void IncrementTestCounter(TestCounter& tc, const TestState& ts) {
             tc.no_value++; break;
         case PASSED:
             tc.passed++; break;
-        case SUCCEEDED:
-            tc.success++; break;
         default:
             break;
     }

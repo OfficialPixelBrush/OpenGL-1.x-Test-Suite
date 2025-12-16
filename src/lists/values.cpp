@@ -2,6 +2,7 @@
 #include <GL/gl.h>
 #include <string>
 
+// Values
 std::vector<ValueContainer> implementationDependentValuesRequired = {
     ValueContainer{ "MAX_LIGHTS","Maximum number of lights","2.13.1",GL_INT,8, GL_MAX_LIGHTS },
     ValueContainer{ "MAX_CLIP_PLANES","Maximum number of user clipping planes","2.11",GL_INT,6, GL_MAX_CLIP_PLANES },

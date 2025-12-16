@@ -3,7 +3,8 @@
 #include <GL/gl.h>
 
 #include "testStructs.h"
-#include "values.h"
+#include "lists/functions.h"
+#include "lists/values.h"
 #include <string>
 #include <vector>
 
@@ -60,6 +61,13 @@ int main() {
     for (auto idv : implementationDependentValuesOptional) {
         RegisterTest(idv.name, [idv]() {
             return TestValueMin(idv.glEnum, idv.minimumValue, idv.type);
+        });
+    }
+    RegisterSection("Function Checking");
+    std::string name = "glBegin";
+    for (auto f : functionList) {
+        RegisterTest(f.name, [f]() {
+            return TestFunctionExistence(f.funcPtr);
         });
     }
     

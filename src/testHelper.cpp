@@ -1,4 +1,5 @@
 #include "testHelper.h"
+#include "testStructs.h"
 #include <GL/gl.h>
 #include <GL/glext.h>
 
@@ -30,6 +31,17 @@ TestResult TestValueMin(GLenum pname, int64_t desired, GLenum type) {
             tr.state = FAILED;
             return tr;
         }
+    }
+    tr.state = SUCCEEDED;
+    return tr;
+}
+
+TestResult TestFunctionExistence(void* funcPtr) {
+    TestResult tr;
+    if (funcPtr == nullptr) {
+        tr.reason = "Function does not exist";
+        tr.state = FAILED;
+        return tr;
     }
     tr.state = SUCCEEDED;
     return tr;

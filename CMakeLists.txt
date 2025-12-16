@@ -9,7 +9,8 @@ add_executable(gl1xts
     src/main.cpp
     src/testHelper.cpp
     src/testStructs.cpp
-    src/values.cpp
+    src/lists/values.cpp
+    src/lists/functions.cpp
 )
 
 target_link_libraries(gl1xts PRIVATE OpenGL::GL)

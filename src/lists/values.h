@@ -3,6 +3,7 @@
 #include <GL/gl.h>
 #include <string>
 #include <vector>
+#include "containers.h"
 
 // Minimum values
 #define MINIMUM_MAX_LIGHTS 8
@@ -19,15 +20,6 @@
 #define MINIMUM_MAX_ATTRIB_STACK_DEPTH 16
 #define MINIMUM_MAX_CLIENT_ATTRIB_STACK_DEPTH 16
 #define MINIMUM_AUX_BUFFERS 0
-
-struct ValueContainer {
-    std::string name = "";
-    std::string description = "";
-    std::string section = "";
-    GLenum type = GL_INT;
-    int64_t minimumValue = 0;
-    GLenum glEnum;
-};
 
 std::string TypeToString(ValueContainer vc);
 

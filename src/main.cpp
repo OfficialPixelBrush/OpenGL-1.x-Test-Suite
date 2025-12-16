@@ -7,21 +7,18 @@
 
 std::vector<TestEntry> tests;
 
-void RegisterTest(std::string name, void* testPtr) {
-    tests.push_back(TestEntry {
-        name, testPtr
-    });
+void RegisterTest(const std::string& name, TestResult (*testPtr)()) {
+    TestEntry te{name, testPtr, {}};
+    tests.push_back(te);
 }
 
-int TestMinimumValues() {
-    int numberOfTests = 1;
-
-    int maxLights = 0;
-    glGetIntegerv(GL_MAX_LIGHTS, &maxLights);
-    if (maxLights == MINIMUM_MAX_LIGHTS) 
+bool TestIntegerMin(GLenum value, int desired) {
+    GLint number = 0;
+    glGetIntegerv(value, &number);
+    return number >= desired;
 }
 
 int main() {
-    std::cout << "Hello, World!\n";
+    std::cout << TestInteger(GL_MAX_LIGHTS, MINIMUM_MAX_LIGHTS) << "\n";
     return 0;
 }

@@ -1,12 +1,13 @@
 #include <string>
 
 enum TestState {
-    UNTESTED,
-    FAILED,
-    SUCCEEDED,
-    INVALID,
-    ERROR,
-    NO_VALUE
+    UNTESTED, // Not yet tested
+    FAILED, // 
+    SUCCEEDED, // Perfectly meets the spec
+    INVALID, // Incorrect result
+    ERROR, // 
+    NO_VALUE, // No result
+    PASSING // Technically wrong, but not accurate
 };
 
 struct TestResult {
@@ -14,7 +15,7 @@ struct TestResult {
     TestState state = UNTESTED;
 };
 
-class TestEntry {
+struct TestEntry {
     std::string name;
     TestResult (*testPtr)();
     TestResult result;

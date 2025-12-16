@@ -8,3 +8,5 @@ find_package(OpenGL REQUIRED)
 add_executable(gl1xts
     src/main.cpp
 )
+
+target_link_libraries(gl1xts PRIVATE OpenGL::GL)

@@ -14,3 +14,4 @@ GL1XTS requires a few functions to correctly test the correctness of all behavio
 ## Resources
 - [The OpenGL Graphics System Specification (Version 1.0)](https://registry.khronos.org/OpenGL/specs/gl/glspec10.pdf)
 - [The OpenGL Graphics System Specification (Version 1.1)](https://registry.khronos.org/OpenGL/specs/gl/glspec11.pdf)
+- [NEHE Productions Legacy OpenGL Tutorial](https://nehe.gamedev.net/tutorial/lessons_01__05/22004/)

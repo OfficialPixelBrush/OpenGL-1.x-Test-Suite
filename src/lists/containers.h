@@ -2,6 +2,7 @@
 
 #include <GL/gl.h>
 #include <string>
+#include "../testStructs.h"
 struct GenericContainer {
     std::string name = "";
     std::string description = "";
@@ -17,4 +18,8 @@ struct ValueContainer : public GenericContainer {
     GLenum type = GL_INT;
     int64_t minimumValue = 0;
     GLenum glEnum;
+};
+
+struct TestContainer : public GenericContainer {
+    TestResult* funcPtr;
 };

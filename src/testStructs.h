@@ -3,6 +3,7 @@
 #include <functional>
 #include <string>
 #include <ostream>
+#include <sstream>
 
 enum TestState {
     UNTESTED, // Not yet tested
@@ -15,6 +16,19 @@ enum TestState {
 
 std::string ColoredTestStateToString(const TestState& ts);
 std::string TestStateToString(const TestState& ts);
+
+struct Col {
+    unsigned char r,g,b,a;
+    friend std::ostream& operator<<(std::ostream& os, const Col& c) {
+        os << "(" << int(c.r) << ", " << int(c.g) << ", " << int(c.b) << ", " << int(c.a) << ")";
+        return os;
+    }
+    std::string str() const {
+        std::ostringstream oss;
+        oss << *this; // Use the overloaded << operator
+        return oss.str();
+    }
+};
 
 struct TestCounter {
     int total = 0;
